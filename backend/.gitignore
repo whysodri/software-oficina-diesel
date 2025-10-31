@@ -1,0 +1,9 @@
+# Arquivos de dependências
+node_modules/
+
+# Pastas de node_modules específicas do projeto MERN
+backend/node_modules/
+frontend/node_modules/
+
+# Arquivos de configuração de ambiente
+.env
