@@ -74,7 +74,30 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     setError(null);
     setIsLoading(true);
     
+    // Modo de desenvolvimento - login simulado
+    if (email === 'admin@exemplo.com' && password === '123456') {
+      const mockUser = {
+        id: '1',
+        name: 'Administrador',
+        email: 'admin@exemplo.com',
+        role: 'admin'
+      };
+      const mockToken = 'mock-jwt-token-for-development';
+      
+      // Salvar no localStorage
+      localStorage.setItem('token', mockToken);
+      localStorage.setItem('user', JSON.stringify(mockUser));
+      
+      // Atualizar o estado
+      setToken(mockToken);
+      setUser(mockUser);
+      setIsLoading(false);
+      
+      return true;
+    }
+    
     try {
+      // Tentativa de login real com a API (mantido para quando o backend estiver disponível)
       const response = await axios.post(`${API_URL}/users/login`, { email, password });
       
       if (response.status === 200 && response.data.token) {
