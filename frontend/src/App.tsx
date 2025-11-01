@@ -5,6 +5,7 @@ import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Clients from './pages/Clients';
 import OrderServicePage from './pages/OrderService';
+import Reports from './pages/Reports';
 
 const App: React.FC = () => {
   return (
@@ -29,6 +30,11 @@ const App: React.FC = () => {
           <Route path="/orders" element={
             <ProtectedRoute>
               <OrderServicePage />
+            </ProtectedRoute>
+          } />
+          <Route path="/reports" element={
+            <ProtectedRoute>
+              <Reports />
             </ProtectedRoute>
           } />
           

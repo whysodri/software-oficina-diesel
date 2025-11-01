@@ -33,10 +33,10 @@ const Dashboard: React.FC = () => {
             <Link to="/clients" className="py-4 px-2 text-gray-500 font-medium hover:text-blue-800 hover:border-b-2 hover:border-blue-800 transition duration-300">
               Clientes
             </Link>
-            <Link to="#" className="py-4 px-2 text-gray-500 font-medium hover:text-blue-800 hover:border-b-2 hover:border-blue-800 transition duration-300">
+            <Link to="/orders" className="py-4 px-2 text-gray-500 font-medium hover:text-blue-800 hover:border-b-2 hover:border-blue-800 transition duration-300">
               Ordens de Serviço
             </Link>
-            <Link to="#" className="py-4 px-2 text-gray-500 font-medium hover:text-blue-800 hover:border-b-2 hover:border-blue-800 transition duration-300">
+            <Link to="/reports" className="py-4 px-2 text-gray-500 font-medium hover:text-blue-800 hover:border-b-2 hover:border-blue-800 transition duration-300">
               Relatórios
             </Link>
           </div>
