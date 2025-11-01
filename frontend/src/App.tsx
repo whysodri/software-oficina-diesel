@@ -1,20 +1,36 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
-import Login from './pages/Login'; // Garante que a importação do Login está correta
-// import Dashboard from './pages/Dashboard'; // Componente placeholder futuro
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider, ProtectedRoute } from './context/AuthContext';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+import Clients from './pages/Clients';
 
 const App: React.FC = () => {
   return (
-    <Routes>
-      {/* A rota principal (/) deve carregar o Login. 
-        Este é o ponto de entrada da aplicação antes da autenticação.
-      */}
-      <Route path="/" element={<Login />} />
-
-      {/* As rotas protegidas futuras (Dashboard, Clientes, OS) serão adicionadas aqui. 
-        Exemplo: <Route path="/dashboard" element={<Dashboard />} />
-      */}
-    </Routes>
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes>
+          {/* Rotas públicas */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Navigate to="/login" replace />} />
+          
+          {/* Rotas protegidas */}
+          <Route path="/dashboard" element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          } />
+          <Route path="/clients" element={
+            <ProtectedRoute>
+              <Clients />
+            </ProtectedRoute>
+          } />
+          
+          {/* Rota para página não encontrada */}
+          <Route path="*" element={<Navigate to="/login" replace />} />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
   );
 };
 
