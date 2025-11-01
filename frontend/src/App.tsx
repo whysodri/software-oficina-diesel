@@ -4,6 +4,7 @@ import { AuthProvider, ProtectedRoute } from './context/AuthContext';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import Clients from './pages/Clients';
+import OrderServicePage from './pages/OrderService';
 
 const App: React.FC = () => {
   return (
@@ -23,6 +24,11 @@ const App: React.FC = () => {
           <Route path="/clients" element={
             <ProtectedRoute>
               <Clients />
+            </ProtectedRoute>
+          } />
+          <Route path="/orders" element={
+            <ProtectedRoute>
+              <OrderServicePage />
             </ProtectedRoute>
           } />
           
