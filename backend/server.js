@@ -1,4 +1,3 @@
-// backend/server.js
 require('dotenv').config(); // Carrega variáveis do .env
 const express = require('express');
 const mongoose = require('mongoose');
@@ -8,7 +7,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors()); // Permite requisições do front
+app.use(cors()); // Permite requisições do frontend
 app.use(express.json()); // Permite que o servidor entenda JSON
 
 // 1. Conexão com o MongoDB
@@ -21,26 +20,19 @@ app.get('/', (req, res) => {
   res.send('API da Oficina Diesel em execução!');
 });
 
-// backend/server.js
-
-// ... (após a conexão com o MongoDB)
-
 // 3. Área para Rotas
-const osRoutes = require('./routes/orderServiceRoutes'); // Importa as rotas
-app.use('/api/os', osRoutes); // Define o endpoint base /api/os para o Front-end
+// --- IMPORTAÇÃO DE ROTAS ---
+const osRoutes = require('./routes/orderServiceRoutes');
+const userRoutes = require('./routes/userRoutes');
+const clientRoutes = require('./routes/clientRoutes');
 
-// backend/server.js (apenas as linhas que precisam ser adicionadas)
-
-// ... após a linha onde você importa osRoutes:
-const userRoutes = require('./routes/userRoutes'); // Adicionar esta linha
-
-// ... após app.use('/api/os', osRoutes);
-app.use('/api/users', userRoutes); // Adicionar esta linha
-// ...
-// 3. Área para Rotas (Próximo passo)
-// Exemplo: app.use('/api/veiculos', veiculoRoutes);
+// --- USO DAS ROTAS (Definição dos Endpoints) ---
+app.use('/api/os', osRoutes);       // Endpoint para Ordem de Serviço
+app.use('/api/users', userRoutes);   // Endpoint para Usuários/Autenticação
+app.use('/api/clients', clientRoutes); // Endpoint para Cadastro de Clientes
 
 // Iniciar o Servidor
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
+  
 });

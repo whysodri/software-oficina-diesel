@@ -1,25 +1,13 @@
-// backend/controllers/userController.js
+const express = require('express');
+const router = express.Router();
+// CORREÇÃO FINAL: Usando o nome do arquivo que existe no seu disco local ('userControllers')
+const userController = require('../controllers/userControllers'); 
 
-const User = require('../models/User'); // Importe o modelo de Usuário
-// const bcrypt = require('bcryptjs'); // Dependências futuras
-// const jwt = require('jsonwebtoken'); // Dependências futuras
+// Rotas de Autenticação
+// POST: Cria um novo usuário
+router.post('/register', userController.register);
 
-// Função de Registro (Signup)
-exports.register = async (req, res) => {
-    try {
-        // Lógica de hashing e criação de usuário aqui
-        res.status(201).json({ message: 'Usuário registrado com sucesso (Lógica pendente).' });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-};
+// POST: Realiza o login
+router.post('/login', userController.login);
 
-// Função de Login (Signin)
-exports.login = async (req, res) => {
-    try {
-        // Lógica de comparação de senha e geração de JWT aqui
-        res.status(200).json({ message: 'Login realizado com sucesso (Lógica pendente).' });
-    } catch (error) {
-        res.status(500).json({ error: error.message });
-    }
-};
+module.exports = router;
