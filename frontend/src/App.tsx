@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard';
 import Clients from './pages/Clients';
 import OrderServicePage from './pages/OrderService';
 import Reports from './pages/Reports';
+import Layout from './components/Layout';
 
 const App: React.FC = () => {
   return (
@@ -19,22 +20,30 @@ const App: React.FC = () => {
           {/* Rotas protegidas */}
           <Route path="/dashboard" element={
             <ProtectedRoute>
-              <Dashboard />
+              <Layout>
+                <Dashboard />
+              </Layout>
             </ProtectedRoute>
           } />
           <Route path="/clients" element={
             <ProtectedRoute>
-              <Clients />
+              <Layout>
+                <Clients />
+              </Layout>
             </ProtectedRoute>
           } />
           <Route path="/orders" element={
             <ProtectedRoute>
-              <OrderServicePage />
+              <Layout>
+                <OrderServicePage />
+              </Layout>
             </ProtectedRoute>
           } />
           <Route path="/reports" element={
             <ProtectedRoute>
-              <Reports />
+              <Layout>
+                <Reports />
+              </Layout>
             </ProtectedRoute>
           } />
           

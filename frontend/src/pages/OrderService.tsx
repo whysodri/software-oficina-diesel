@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Link } from 'react-router-dom';
 
 const OrderServicePage = () => {
   const { user } = useAuth();
@@ -79,26 +78,6 @@ const OrderServicePage = () => {
           </div>
         </div>
       </header>
-
-      {/* Menu de navegação */}
-      <nav className="bg-white shadow-md">
-        <div className="container mx-auto px-4">
-          <div className="flex space-x-8">
-            <Link to="/dashboard" className="py-4 px-2 text-gray-500 font-medium hover:text-blue-800 hover:border-b-2 hover:border-blue-800 transition duration-300">
-              Dashboard
-            </Link>
-            <Link to="/clients" className="py-4 px-2 text-gray-500 font-medium hover:text-blue-800 hover:border-b-2 hover:border-blue-800 transition duration-300">
-              Clientes
-            </Link>
-            <Link to="/orders" className="py-4 px-2 text-blue-800 border-b-2 border-blue-800 font-medium">
-              Ordens de Serviço
-            </Link>
-            <Link to="#" className="py-4 px-2 text-gray-500 font-medium hover:text-blue-800 hover:border-b-2 hover:border-blue-800 transition duration-300">
-              Relatórios
-            </Link>
-          </div>
-        </div>
-      </nav>
 
       {/* Conteúdo */}
       <div className="container mx-auto p-6">
