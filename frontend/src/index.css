@@ -1,0 +1,16 @@
+/* Importação das diretivas base do Tailwind CSS para a aplicação */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos globais (opcional, mas bom para garantir o layout) */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f4f5f7; /* Um cinza claro para o fundo */
+}
+
+/* Garante que o container principal ocupe 100% da altura da tela */
+#root {
+  min-height: 100vh;
+}
