@@ -29,7 +29,14 @@ app.get('/', (req, res) => {
 const osRoutes = require('./routes/orderServiceRoutes'); // Importa as rotas
 app.use('/api/os', osRoutes); // Define o endpoint base /api/os para o Front-end
 
+// backend/server.js (apenas as linhas que precisam ser adicionadas)
 
+// ... após a linha onde você importa osRoutes:
+const userRoutes = require('./routes/userRoutes'); // Adicionar esta linha
+
+// ... após app.use('/api/os', osRoutes);
+app.use('/api/users', userRoutes); // Adicionar esta linha
+// ...
 // 3. Área para Rotas (Próximo passo)
 // Exemplo: app.use('/api/veiculos', veiculoRoutes);
 
